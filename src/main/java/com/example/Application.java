@@ -12,24 +12,18 @@ import com.example.appl.IdeasModder;
 import com.example.ui.WebServer;
 
 /**
- * The entry point for the Guessing Game web application.
+ * The entry point for the Projects web application.
  *
- * @author <a href='mailto:bdbvse@rit.edu'>Bryan Basham</a>
+ * @author Momo Hossain
  */
 public final class Application {
-  private static final Logger LOG = Logger.getLogger(Application.class.getName());
 
-  //
-  // Application Launch method
-  //
+  private static final Logger LOG = Logger.getLogger(Application.class.getName());
 
   /**
    * Entry point for the Guessing Game web application.
    *
-   * <p>
-   * It wires the application components together.  This is an example
-   * of <a href='https://en.wikipedia.org/wiki/Dependency_injection'>Dependency Injection</a>
-   * </p>
+   * It wires the application components together.
    *
    * @param args
    *    Command line arguments; none expected.

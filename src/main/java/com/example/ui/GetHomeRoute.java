@@ -1,5 +1,6 @@
 package com.example.ui;
 
+import static com.example.ui.UIStrings.HOME_VIEW;
 import static spark.Spark.halt;
 
 import java.util.HashMap;
@@ -14,27 +15,11 @@ import spark.TemplateEngine;
 
 /**
  * The {@code GET /} route handler; aka the Home page.
- * This is the page where the user starts (no Game yet)
- * but is also the landing page after a game ends.
+ * This is the page where the user can see all the projects.
  *
- * @author <a href='mailto:bdbvse@rit.edu'>Bryan Basham</a>
- * @author <a href='mailto:jrv@se.rit.edu'>Jim Vallino</a>
+ * @author Momo Hossain
  */
 public class GetHomeRoute implements Route {
-
-  // Values used in the view-model map for rendering the home view.
-  static final String TITLE_ATTR = "title";
-  static final String NEW_PLAYER_ATTR = "newPlayer";
-  static final String TITLE = "Welcome to the Guessing Game";
-  static final String VIEW_NAME = "home.ftl";
-
-  // Key in the session attribute map for the player who started the session
-  static final String PLAYERSERVICES_KEY = "playerServices";
-
-
-  //
-  // Attributes
-  //
 
   private final TemplateEngine templateEngine;
 
@@ -63,25 +48,7 @@ public class GetHomeRoute implements Route {
    */
   @Override
   public String handle(Request request, Response response) {
-    // retrieve the HTTP session
-    final Session httpSession = request.session();
-
-    // start building the View-Model
     final Map<String, Object> vm = new HashMap<>();
-    vm.put(TITLE_ATTR, TITLE);
-
-    // if this is a brand new browser session or a session that timed out
-    if(httpSession.attribute(PLAYERSERVICES_KEY) == null) {
-      // get the object that will provide client-specific services for this player
-
-      // render the Game Form view
-      vm.put(NEW_PLAYER_ATTR, true);
-      return templateEngine.render(new ModelAndView(vm, VIEW_NAME));
-    }
-    else {
-      // there is a game already being played so redirect the user to the Game view
-      halt();
-      return null;
-    }
+    return templateEngine.render(new ModelAndView(vm, HOME_VIEW));
   }
 }
