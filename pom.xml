@@ -1,0 +1,225 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.example</groupId>
+  <artifactId>guessing-game</artifactId>
+  <version>2.0</version>
+
+  <name>guessing-game</name>
+  <description>A simple number guessing game using the Spark web framework.</description>
+
+  <properties>
+
+    <!-- General build properties -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jdk.version>1.8</jdk.version>
+
+    <!-- Application build dependency versions -->
+    <maven.compiler.version>3.7.0</maven.compiler.version>
+    <maven.assembly.version>3.1.0</maven.assembly.version>
+    <maven.exec.version>1.6.0</maven.exec.version>
+    
+    <!-- Application dependency versions -->
+    <spark.version>2.7.1</spark.version>
+    <spark.freemarker.version>2.7.1</spark.freemarker.version>
+    <freemarker.version>2.3.27-incubating</freemarker.version>
+    <slf4j.version>1.7.25</slf4j.version>
+    
+    <!-- Test build dependency versions -->
+    <maven.surefire.version>2.19.1</maven.surefire.version>
+    <jacoco.version>0.8.0</jacoco.version>
+    <test.tags>UI-tier,Application-tier,Model-tier</test.tags>
+    
+    <!-- Test dependency versions -->
+    <junit.jupiter.version>5.0.3</junit.jupiter.version>
+    <junit.platform.version>1.0.3</junit.platform.version>
+    <apiguardian.version>1.0.0</apiguardian.version>
+    <junit.version>5.0</junit.version>
+    <mockito.verson>2.13.0</mockito.verson>
+    
+  </properties>
+
+  <dependencies>
+
+    <!-- Spark Java -->
+    <dependency>
+      <groupId>com.sparkjava</groupId>
+      <artifactId>spark-core</artifactId>
+      <version>${spark.version}</version>
+    </dependency>
+
+    <!-- Spark Freemarker -->
+    <dependency>
+      <groupId>com.sparkjava</groupId>
+      <artifactId>spark-template-freemarker</artifactId>
+      <version>${spark.freemarker.version}</version>
+    </dependency>
+
+    <!-- Freemarker -->
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>${freemarker.version}</version>
+    </dependency>
+
+    <!-- Logging library -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+
+    <!-- START: Unit testing libraries -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
+      <version>${mockito.verson}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Only required to run tests in an IDE that bundles an older version -->
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-launcher</artifactId>
+      <version>${junit.platform.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Only required to run tests in an IDE that bundles an older version -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit.jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- END: Unit testing libraries -->
+
+  </dependencies>
+
+  <build>
+    <plugins>
+
+      <!-- STAET: Application build plugins -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.version}</version>
+        <configuration>
+          <source>${jdk.version}</source>
+          <target>${jdk.version}</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${maven.exec.version}</version>
+        <configuration>
+          <mainClass>com.example.Application</mainClass>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>${maven.assembly.version}</version>
+        <executions>
+          <execution>
+            <id>zip</id>
+            <configuration>
+              <descriptors>
+                <descriptor>src/assembly/zip.xml</descriptor>
+              </descriptors>
+              <finalName>guessing-game</finalName>
+              <appendAssemblyId>false</appendAssemblyId>
+            </configuration>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>zip-with-tests</id>
+            <configuration>
+              <descriptors>
+                <descriptor>src/assembly/zip-with-tests.xml</descriptor>
+              </descriptors>
+              <finalName>guessing-game-with-tests</finalName>
+              <appendAssemblyId>false</appendAssemblyId>
+            </configuration>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- END: Application build plugins -->
+
+      <!-- STAET: Testing plugins -->
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven.surefire.version}</version>
+        <configuration>
+          <includes>
+            <include>**/Test*.java</include>
+            <include>**/*Test.java</include>
+            <include>**/*Tests.java</include>
+            <include>**/*TestCase.java</include>
+          </includes>
+          <properties>
+            <includeTags>${test.tags}</includeTags>
+            <!--
+            <configurationParameters>
+              junit.jupiter.conditions.deactivate = *
+            </configurationParameters>
+            -->
+          </properties>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-surefire-provider</artifactId>
+            <version>${junit.platform.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${jacoco.version}</version>
+        <!--<configuration>
+          <destfile>/target/coverage-reports/jacoco-unit.exec</destfile>
+          <datafile>/target/coverage-reports/jacoco-unit.exec</datafile>
+        </configuration>-->
+        <executions>
+          <execution>
+            <id>jacoco-initialize</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>jacoco-site</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- END: Testing plugins -->
+      
+    </plugins>
+  </build>
+  
+</project>

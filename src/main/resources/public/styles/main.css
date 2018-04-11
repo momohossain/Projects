@@ -1,0 +1,62 @@
+html, body {
+    margin: 0;
+    font-family: Verdana;
+    background-color: 	#F0F0F0;
+}
+
+.home-div-table{
+    margin-top: 15px;
+    margin-left: 1%;
+    width: 32%;
+    float:left;
+}
+
+th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    font-size: xx-large;
+    background-color: #b0197e;
+}
+
+tr{
+    background-color: white;
+    border-collapse: collapse;
+    transition-duration: 0.3s;
+}
+
+.add_idea_row {
+    background-color: white;
+    border-collapse: collapse;
+}
+
+.add_idea_row:hover {
+    background-color: white;
+}
+
+tr:hover {
+    background-color: #C0C0C0;
+}
+
+td {
+    padding:10px;
+}
+
+.add_idea {
+    border: 2px solid #ff23b2;
+    transition-duration: 0.3s;
+    font-size: large;
+    background: white;
+    padding-right: 1ch;
+}
+
+.add_idea:hover {
+    background-color: #ff23b2;
+    color: white;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    font-size: large;
+}
