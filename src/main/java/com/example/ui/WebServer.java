@@ -7,9 +7,9 @@ import static com.example.ui.UIStrings.HOME_URL;
 import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.Spark.staticFiles;
-import spark.TemplateEngine;
 
-import com.example.appl.GameCenter;
+import com.example.appl.IdeasModder;
+import spark.TemplateEngine;
 
 /**
  * The server that initializes the set of HTTP request handlers.
@@ -50,7 +50,6 @@ public class WebServer {
   // Attributes
   //
 
-  private final GameCenter gameCenter;
   private final TemplateEngine templateEngine;
 
   //
@@ -60,19 +59,18 @@ public class WebServer {
   /**
    * The constructor for the Web Server.
    *
-   * @param gameCenter
-   *    The {@link GameCenter} for the application.
+   * @param ideasModder
+   *    The {@link IdeasModder} for the application.
    * @param templateEngine
    *    The default {@link TemplateEngine} to render views.
    */
   public WebServer(
-      final GameCenter gameCenter,
+      final IdeasModder ideasModder,
       final TemplateEngine templateEngine) {
     // validation
-    Objects.requireNonNull(gameCenter, "gameCenter must not be null");
+    Objects.requireNonNull(ideasModder, "ideasModder must not be null");
     Objects.requireNonNull(templateEngine, "templateEngine must not be null");
     //
-    this.gameCenter = gameCenter;
     this.templateEngine = templateEngine;
   }
 
@@ -127,7 +125,7 @@ public class WebServer {
     //// code clean; using small classes.
 
     // These are examples of the Dependency inversion principle where the
-    // GameCenter and WebServer dependencies are injected into the object.
+    // IdeasModder and WebServer dependencies are injected into the object.
     // Shows Home page.
 
     get(HOME_URL, new GetHomeRoute(templateEngine));
