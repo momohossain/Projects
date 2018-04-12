@@ -64,7 +64,7 @@ public class GetHomeRoute implements Route {
     while(!ideacenter.presentIsEmpty()){
       presentSet.add(ideacenter.iteratePresentProjects());
     }
-    vm.put(PAST_IDEAS,presentSet);
+    vm.put(PRESENT_IDEAS,presentSet);
     ideacenter.refreshPresentProjects();
 
     HashSet<Idea> futureSet = new HashSet<>();
