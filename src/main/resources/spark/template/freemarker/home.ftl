@@ -16,7 +16,7 @@
 </div>
 <table class="home-div-table">
     <tr>
-        <th><b>Former Projects</b></th>
+        <th><b>Antique Projects</b></th>
     </tr>
     <tr class="add_idea_row">
         <td align="center">
@@ -35,7 +35,7 @@
     <tr>
         <th><b>Present Dabbling</b></th>
     </tr>
-    <tr>
+    <tr class="add_idea_row">
         <td align="center">
             <button class="add_idea"><span style="color: #ff23b2">+</span>Add Idea</button>
         </td>
@@ -45,7 +45,7 @@
     <tr>
         <th><b>Envision Projects</b></th>
     </tr>
-    <tr>
+    <tr class="add_idea_row">
         <td align="center">
             <button class="add_idea"><span style="color: #ff23b2">+</span>Add Idea</button>
         </td>

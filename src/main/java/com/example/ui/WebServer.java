@@ -8,7 +8,7 @@ import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.Spark.staticFiles;
 
-import com.example.appl.IdeasModder;
+import com.example.appl.IdeaCenter;
 import spark.TemplateEngine;
 
 /**
@@ -26,16 +26,16 @@ public class WebServer {
   /**
    * The constructor for the Web Server.
    *
-   * @param ideasModder
-   *    The {@link IdeasModder} for the application.
+   * @param ideaCenter
+   *    The {@link IdeaCenter} for the application.
    * @param templateEngine
    *    The default {@link TemplateEngine} to render views.
    */
   public WebServer(
-      final IdeasModder ideasModder,
+      final IdeaCenter ideaCenter,
       final TemplateEngine templateEngine) {
     // validation
-    Objects.requireNonNull(ideasModder, "ideasModder must not be null");
+    Objects.requireNonNull(ideaCenter, "ideaCenter must not be null");
     Objects.requireNonNull(templateEngine, "templateEngine must not be null");
     //
     this.templateEngine = templateEngine;

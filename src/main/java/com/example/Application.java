@@ -5,10 +5,10 @@ import java.util.Objects;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
+import com.example.appl.IdeaCenter;
 import spark.TemplateEngine;
 import spark.template.freemarker.FreeMarkerEngine;
 
-import com.example.appl.IdeasModder;
 import com.example.ui.WebServer;
 
 /**
@@ -39,8 +39,8 @@ public final class Application {
       System.err.println("Could not initialize log manager because: " + e.getMessage());
     }
 
-    // create the one and only game center
-    final IdeasModder ideasModder = new IdeasModder();
+    // create the one and only idea center
+    final IdeaCenter ideaCenter = new IdeaCenter();
 
     // The application uses FreeMarker templates to generate the HTML
     // responses sent back to the client. This will be the engine processing
@@ -49,8 +49,8 @@ public final class Application {
 
     // inject the game center and freemarker engine into web server
     // This is an example of the Dependency inversion principle where the
-    // IdeasModder and WebServer dependencies are injected into the object.
-    final WebServer webServer = new WebServer(ideasModder, templateEngine);
+    // IdeaCenter and WebServer dependencies are injected into the object.
+    final WebServer webServer = new WebServer(ideaCenter, templateEngine);
 
     // inject web server into application
     // This is an example of the Dependency inversion principle where the
