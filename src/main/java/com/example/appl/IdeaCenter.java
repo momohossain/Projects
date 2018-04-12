@@ -104,8 +104,6 @@ public class IdeaCenter {
         return idea.getAuthor();
     }
 
-    //TODO do I need to be able to find an idea yet? Use iterate() for that.
-
     public Idea iteratePastProjects(){
         if (!pastProjects.empty()) {
             backwardStack.push(pastProjects.pop());

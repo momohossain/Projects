@@ -23,13 +23,13 @@
             <button class="add_idea"><span style="color: #ff23b2">+</span>Add Idea</button>
         </td>
     </tr>
-    <tr>
+    <#--<tr>
         <td>
             <p>
                 This is a sample idea!
             </p>
         </td>
-    </tr>
+    </tr>-->
 </table>
 <table class="home-div-table">
     <tr>

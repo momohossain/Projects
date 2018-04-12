@@ -50,7 +50,7 @@ public final class Application {
     // inject the game center and freemarker engine into web server
     // This is an example of the Dependency inversion principle where the
     // IdeaCenter and WebServer dependencies are injected into the object.
-    final WebServer webServer = new WebServer(ideaCenter, templateEngine);
+    final WebServer webServer = new WebServer(templateEngine);
 
     // inject web server into application
     // This is an example of the Dependency inversion principle where the
