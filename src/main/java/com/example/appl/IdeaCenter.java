@@ -63,10 +63,10 @@ public class IdeaCenter {
         return futureProjects;
     }
 
-    public Idea removeIdeaFromPast(String name){
+    public Idea removeIdeaFromPast(String title){
         Idea output = null;
         while(!pastProjects.empty()) {
-            if (pastProjects.peek().getName().equals(name)) {
+            if (pastProjects.peek().getName().equals(title)) {
                 output = pastProjects.pop();
             } else backwardStack.push(pastProjects.pop());
         }
@@ -74,10 +74,10 @@ public class IdeaCenter {
         return output;
     }
 
-    public Idea removeIdeaFromPresent(String name){
+    public Idea removeIdeaFromPresent(String title){
         Idea output = null;
         while(!presentProjects.empty()) {
-            if (presentProjects.peek().getName().equals(name)) {
+            if (presentProjects.peek().getName().equals(title)) {
                 output = presentProjects.pop();
             } else backwardStack.push(presentProjects.pop());
         }
@@ -85,10 +85,10 @@ public class IdeaCenter {
         return output;
     }
 
-    public Idea removeIdeaFromFuture(String name){
+    public Idea removeIdeaFromFuture(String title){
         Idea output = null;
         while(!futureProjects.empty()) {
-            if (futureProjects.peek().getName().equals(name)) {
+            if (futureProjects.peek().getName().equals(title)) {
                 output = futureProjects.pop();
             } else backwardStack.push(futureProjects.pop());
         }
@@ -96,12 +96,16 @@ public class IdeaCenter {
         return output;
     }
 
+    public String getTitle(Idea idea) {
+        return idea.getTitle();
+    }
+
     public String getDescription(Idea idea){
         return idea.getDescription();
     }
 
-    public String getAuthor(Idea idea){
-        return idea.getAuthor();
+    public String getName(Idea idea){
+        return idea.getName();
     }
 
     public Idea iteratePastProjects(){

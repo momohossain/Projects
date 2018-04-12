@@ -60,3 +60,11 @@ p {
     padding: 0;
     font-size: large;
 }
+
+input[type=text] {
+    width: 95%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: large;
+}

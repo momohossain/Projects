@@ -1,19 +1,19 @@
 package com.example.model;
 
 public class Idea {
-    private String name;
+    private String title;
     private String description;
-    private String author;
+    private String name;
 
-    public Idea(String name, String description, String author){
-        this.name = name;
+    public Idea(String title, String description, String name){
+        this.title = title;
         this.description = description;
-        this.author = author;
+        this.name = name;
     }
 
-    public String getName() {
+    public String getTitle() {
 
-        return name;
+        return title;
     }
 
     public String getDescription() {
@@ -21,8 +21,8 @@ public class Idea {
         return description;
     }
 
-    public String getAuthor() {
+    public String getName() {
 
-        return author;
+        return name;
     }
 }
