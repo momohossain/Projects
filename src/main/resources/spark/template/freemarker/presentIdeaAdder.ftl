@@ -6,7 +6,7 @@
     <meta name="description" content="CSH Project">
     <meta name="author" content="Momo Hossain">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../../../public/styles/main.css">
+    <link rel="stylesheet" href="/styles/main.css">
 </head>
 <body>
 <div class="header" style="background-color:#b0197e">

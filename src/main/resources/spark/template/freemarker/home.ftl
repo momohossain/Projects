@@ -20,7 +20,9 @@
     </tr>
     <tr class="add_idea_row">
         <td align="center">
-            <button class="add_idea"><span style="color: #ff23b2">+</span>Add Idea</button>
+            <a href="/add/AntiqueProject">
+                <button class="add_idea"><span style="color: #ff23b2">+</span>Add Idea</button>
+            </a>
         </td>
     </tr>
     <#--<tr>
@@ -37,7 +39,9 @@
     </tr>
     <tr class="add_idea_row">
         <td align="center">
-            <button class="add_idea"><span style="color: #ff23b2">+</span>Add Idea</button>
+            <a href="/add/PresentDabble">
+                <button class="add_idea"><span style="color: #ff23b2">+</span>Add Idea</button>
+            </a>
         </td>
     </tr>
 </table>
@@ -47,7 +51,9 @@
     </tr>
     <tr class="add_idea_row">
         <td align="center">
-            <button class="add_idea"><span style="color: #ff23b2">+</span>Add Idea</button>
+            <a href="/add/EnvisionProject">
+                <button class="add_idea"><span style="color: #ff23b2">+</span>Add Idea</button>
+            </a>
         </td>
     </tr>
 </table>

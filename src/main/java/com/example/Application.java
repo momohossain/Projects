@@ -39,9 +39,6 @@ public final class Application {
       System.err.println("Could not initialize log manager because: " + e.getMessage());
     }
 
-    // create the one and only idea center
-    final IdeaCenter ideaCenter = new IdeaCenter();
-
     // The application uses FreeMarker templates to generate the HTML
     // responses sent back to the client. This will be the engine processing
     // the templates and associated data.

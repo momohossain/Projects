@@ -32,11 +32,9 @@ public class WebServer {
    *    The default {@link TemplateEngine} to render views.
    */
   public WebServer(final TemplateEngine templateEngine) {
-    // validation
-    Objects.requireNonNull(ideaCenter, "ideaCenter must not be null");
-    Objects.requireNonNull(templateEngine, "templateEngine must not be null");
-    //
     ideaCenter = new IdeaCenter();
+    // validation
+    Objects.requireNonNull(templateEngine, "templateEngine must not be null");
     this.templateEngine = templateEngine;
   }
 

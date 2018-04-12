@@ -18,7 +18,7 @@ public class IdeaCenter {
         presentProjects = new Stack();
         futureProjects= new Stack();
         backwardStack= new Stack();
-        LOG.fine("Idea center created added.");
+        LOG.fine("Idea center created.");
     }
 
     public void pushToPast(String name, String description, String author) {
