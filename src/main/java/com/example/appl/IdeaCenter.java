@@ -21,18 +21,18 @@ public class IdeaCenter {
         LOG.fine("Idea center created added.");
     }
 
-    public void pushToPast(String name, String description) {
-        pastProjects.push(new Idea(name,description));
+    public void pushToPast(String name, String description, String author) {
+        pastProjects.push(new Idea(name,description, author));
         LOG.fine("Past idea "+name+" added.");
     }
 
-    public void pushToPresent(String name, String description) {
-        presentProjects.push(new Idea(name,description));
+    public void pushToPresent(String name, String description, String author) {
+        presentProjects.push(new Idea(name,description,author));
         LOG.fine("Present idea "+name+" added.");
     }
 
-    public void pushToFuture(String name, String description) {
-        futureProjects.push(new Idea(name,description));
+    public void pushToFuture(String name, String description, String author) {
+        futureProjects.push(new Idea(name,description,author));
         LOG.fine("Future idea "+name+" added.");
     }
 
@@ -99,6 +99,12 @@ public class IdeaCenter {
     public String getDescription(Idea idea){
         return idea.getDescription();
     }
+
+    public String getAuthor(Idea idea){
+        return idea.getAuthor();
+    }
+
+    //TODO do I need to be able to find an idea yet? Use iterate() for that.
 
     public Idea iterate(){
         if (!pastProjects.empty()) {
