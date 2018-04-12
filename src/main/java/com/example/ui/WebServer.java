@@ -21,23 +21,22 @@ import spark.TemplateEngine;
 public class WebServer {
   private static final Logger LOG = Logger.getLogger(WebServer.class.getName());
 
+  IdeaCenter ideaCenter;
+
   private final TemplateEngine templateEngine;
 
   /**
    * The constructor for the Web Server.
    *
-   * @param ideaCenter
-   *    The {@link IdeaCenter} for the application.
    * @param templateEngine
    *    The default {@link TemplateEngine} to render views.
    */
-  public WebServer(
-      final IdeaCenter ideaCenter,
-      final TemplateEngine templateEngine) {
+  public WebServer(final TemplateEngine templateEngine) {
     // validation
     Objects.requireNonNull(ideaCenter, "ideaCenter must not be null");
     Objects.requireNonNull(templateEngine, "templateEngine must not be null");
     //
+    ideaCenter = new IdeaCenter();
     this.templateEngine = templateEngine;
   }
 
@@ -56,7 +55,7 @@ public class WebServer {
     // Configuration to serve static files
     staticFiles.location("/public");
 
-    get(HOME_URL, new GetHomeRoute(templateEngine));
+    get(HOME_URL, new GetHomeRoute(ideaCenter,templateEngine));
 
 
     LOG.config("WebServer is initialized.");

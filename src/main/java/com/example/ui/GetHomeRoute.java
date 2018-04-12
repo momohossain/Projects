@@ -6,6 +6,10 @@ import static spark.Spark.halt;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Stack;
+
+import com.example.appl.IdeaCenter;
+import com.example.model.Idea;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -20,6 +24,8 @@ import spark.TemplateEngine;
  * @author Momo Hossain
  */
 public class GetHomeRoute implements Route {
+
+  IdeaCenter ideacenter;
 
   private final TemplateEngine templateEngine;
 
@@ -36,10 +42,11 @@ public class GetHomeRoute implements Route {
    * @throws NullPointerException
    *    when the {@code gameCenter} or {@code templateEngine} parameter is null
    */
-  GetHomeRoute(final TemplateEngine templateEngine) {
+  GetHomeRoute(IdeaCenter ideacenter, final TemplateEngine templateEngine) {
     // validation
     Objects.requireNonNull(templateEngine, "templateEngine must not be null");
     //
+    this.ideacenter = ideacenter;
     this.templateEngine = templateEngine;
   }
 
@@ -49,6 +56,12 @@ public class GetHomeRoute implements Route {
   @Override
   public String handle(Request request, Response response) {
     final Map<String, Object> vm = new HashMap<>();
+    Stack<Idea> pastProjects = this.ideacenter.getPastProjects();
+    Stack<Idea> presentProjects = this.ideacenter.getPresentProjects();
+    Stack<Idea> futureProjects = this.ideacenter.getFutureProjects();
+
+
+
     return templateEngine.render(new ModelAndView(vm, HOME_VIEW));
   }
 }

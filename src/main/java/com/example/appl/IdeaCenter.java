@@ -70,7 +70,7 @@ public class IdeaCenter {
                 output = pastProjects.pop();
             } else backwardStack.push(pastProjects.pop());
         }
-        refreshEncyclopedia();
+        refreshPastProjects();
         return output;
     }
 
@@ -81,7 +81,7 @@ public class IdeaCenter {
                 output = presentProjects.pop();
             } else backwardStack.push(presentProjects.pop());
         }
-        refreshEncyclopedia();
+        refreshPresentProjects();
         return output;
     }
 
@@ -92,7 +92,7 @@ public class IdeaCenter {
                 output = futureProjects.pop();
             } else backwardStack.push(futureProjects.pop());
         }
-        refreshEncyclopedia();
+        refreshFutureProjects();
         return output;
     }
 
@@ -106,16 +106,42 @@ public class IdeaCenter {
 
     //TODO do I need to be able to find an idea yet? Use iterate() for that.
 
-    public Idea iterate(){
+    public Idea iteratePastProjects(){
         if (!pastProjects.empty()) {
             backwardStack.push(pastProjects.pop());
             return backwardStack.peek();
         } else return null;
     }
 
-    public void refreshEncyclopedia(){
+    public Idea iteratePresentProjects(){
+        if (!presentProjects.empty()) {
+            backwardStack.push(presentProjects.pop());
+            return backwardStack.peek();
+        } else return null;
+    }
+
+    public Idea iterateFutureProjects(){
+        if (!futureProjects.empty()) {
+            backwardStack.push(futureProjects.pop());
+            return backwardStack.peek();
+        } else return null;
+    }
+
+    public void refreshPastProjects(){
         while (!backwardStack.empty()) {
             pastProjects.push(backwardStack.pop());
+        }
+    }
+
+    public void refreshPresentProjects(){
+        while (!backwardStack.empty()) {
+            presentProjects.push(backwardStack.pop());
+        }
+    }
+
+    public void refreshFutureProjects(){
+        while (!backwardStack.empty()) {
+            futureProjects.push(backwardStack.pop());
         }
     }
 }
