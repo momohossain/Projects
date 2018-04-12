@@ -14,7 +14,7 @@
         <img src="https://www.csh.rit.edu/~mbillow/Images/csh-logo-discourse-round.svg" alt="CSH Projects Home" id="site-logo" hspace="10" vspace="10" style="padding-left: 15px">
     </a>
 </div>
-<form style="padding: 15px; font-size: large">
+<form action="home.ftl" method="POST" style="padding: 15px; font-size: large">
     Idea Title: <br><input type="text" name="title" placeholder="Your Project Title.."/> <br> <br>
     Your Name: <br><input type="text" name="name" placeholder="Your Name.."/> <br> <br>
     Description: <br>

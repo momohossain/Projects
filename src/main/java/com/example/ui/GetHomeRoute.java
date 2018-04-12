@@ -55,7 +55,7 @@ public class GetHomeRoute implements Route {
    */
   @Override
   public String handle(Request request, Response response) {
-    final Map<String, Object> vm = new HashMap<>();
+    Map<String, Object> vm = new HashMap<>();
 
     while(!ideacenter.pastIsEmpty()){
       vm.put(PAST_IDEA,ideacenter.iteratePastProjects());

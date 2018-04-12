@@ -3,7 +3,7 @@ package com.example.ui;
 import java.util.Objects;
 import java.util.logging.Logger;
 
-import static com.example.ui.UIStrings.HOME_URL;
+import static com.example.ui.UIStrings.*;
 import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.Spark.staticFiles;
@@ -56,6 +56,12 @@ public class WebServer {
     staticFiles.location("/public");
 
     get(HOME_URL, new GetHomeRoute(ideaCenter,templateEngine));
+
+    get(PAST_IDEA_ADDER_URL,new GetAddPastRoute(templateEngine));
+
+    get(PRESENT_IDEA_ADDER_URL, new GetAddPresentRoute(templateEngine));
+
+    get(FUTURE_IDEA_ADDER_URL, new GetAddFutureRoute(templateEngine));
 
 
     LOG.config("WebServer is initialized.");
