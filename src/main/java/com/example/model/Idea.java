@@ -25,4 +25,9 @@ public class Idea {
 
         return name;
     }
+
+    @Override
+    public String toString(){
+        return("Title: "+title+"\nName: "+name+"\nDescription: "+description);
+    }
 }

@@ -8,6 +8,8 @@ import com.example.model.Idea;
 public class IdeaCenter {
     private static final Logger LOG = Logger.getLogger(IdeaCenter.class.getName());
 
+    //I used a stack because I wanted the table to be in descending order of date added.
+    // Couldn't figure out how to do that in the end so these stacks are basically pointless.
     private Stack<Idea> pastProjects;
     private Stack<Idea> presentProjects;
     private Stack<Idea> futureProjects;
@@ -24,6 +26,7 @@ public class IdeaCenter {
     public void pushToPast(String title, String name, String description) {
         pastProjects.push(new Idea(title,name, description));
         LOG.fine("Past idea "+name+" added.");
+        System.out.println(pastProjects.peek());
     }
 
     public void pushToPresent(String title, String name, String description) {

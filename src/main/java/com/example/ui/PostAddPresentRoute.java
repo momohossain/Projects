@@ -9,8 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import static com.example.ui.UIStrings.HOME_VIEW;
-import static com.example.ui.UIStrings.PAST_IDEA;
-import static com.example.ui.UIStrings.PRESENT_IDEA;
+import static com.example.ui.UIStrings.PRESENT_IDEAS;
 
 /**
  * The {@code GET /} route handler; aka the Home page.
@@ -58,7 +57,7 @@ public class PostAddPresentRoute implements Route {
 
         ideaCenter.pushToPresent(title,name,description);
 
-        vm.put(PRESENT_IDEA, new Idea(title,name,description));
+        vm.put(PRESENT_IDEAS, new Idea(title,name,description));
 
         return templateEngine.render(new ModelAndView(vm, HOME_VIEW));
     }

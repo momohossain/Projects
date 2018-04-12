@@ -25,6 +25,17 @@
             </a>
         </td>
     </tr>
+    <script language="JavaScript" type="text/javascript">
+        for(var idea in pastIdeas) {
+            document.write("<tr>");
+            document.write("<td>");
+            document.write("<p>");
+            document.write(idea);
+            document.write("</p>");
+            document.write("</td>");
+            document.write("</tr>");
+        })
+    </script>
     <#--<tr>
         <td>
             <p>

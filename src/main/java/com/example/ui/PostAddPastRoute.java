@@ -55,7 +55,7 @@ public class PostAddPastRoute implements Route {
 
         ideaCenter.pushToPast(title,name,description);
 
-        vm.put(PAST_IDEA, new Idea(title,name,description));
+        vm.put(PAST_IDEAS, new Idea(title,name,description));
 
         return templateEngine.render(new ModelAndView(vm, HOME_VIEW));
     }

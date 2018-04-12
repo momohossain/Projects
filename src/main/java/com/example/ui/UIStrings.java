@@ -14,8 +14,8 @@ public interface UIStrings {
     String HOME_VIEW = "home.ftl";
     String IDEA_VIEW = "idea.ftl";
 
-    String PAST_IDEA = "pastIdea";
-    String PRESENT_IDEA = "presentIdea";
-    String FUTURE_IDEA = "futureIdea";
+    String PAST_IDEAS = "pastIdeas";
+    String PRESENT_IDEAS = "presentIdeas";
+    String FUTURE_IDEAS = "futureIdeas";
 
 }

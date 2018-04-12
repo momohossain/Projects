@@ -3,10 +3,7 @@ package com.example.ui;
 import static com.example.ui.UIStrings.*;
 import static spark.Spark.halt;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Stack;
+import java.util.*;
 
 import com.example.appl.IdeaCenter;
 import com.example.model.Idea;
@@ -14,7 +11,6 @@ import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.Route;
-import spark.Session;
 import spark.TemplateEngine;
 
 /**
@@ -57,19 +53,25 @@ public class GetHomeRoute implements Route {
   public String handle(Request request, Response response) {
     Map<String, Object> vm = new HashMap<>();
 
+    HashSet<Idea> pastSet = new HashSet<>();
     while(!ideacenter.pastIsEmpty()){
-      vm.put(PAST_IDEA,ideacenter.iteratePastProjects());
+      pastSet.add(ideacenter.iteratePastProjects());
     }
+    vm.put(PAST_IDEAS,pastSet);
     ideacenter.refreshPastProjects();
 
+    HashSet<Idea> presentSet = new HashSet<>();
     while(!ideacenter.presentIsEmpty()){
-      vm.put(PRESENT_IDEA,ideacenter.iteratePresentProjects());
+      presentSet.add(ideacenter.iteratePresentProjects());
     }
+    vm.put(PAST_IDEAS,presentSet);
     ideacenter.refreshPresentProjects();
 
+    HashSet<Idea> futureSet = new HashSet<>();
     while(!ideacenter.futureIsEmpty()){
-      vm.put(FUTURE_IDEA,ideacenter.iterateFutureProjects());
+      futureSet.add(ideacenter.iterateFutureProjects());
     }
+    vm.put(FUTURE_IDEAS,futureSet);
     ideacenter.refreshFutureProjects();
 
     return templateEngine.render(new ModelAndView(vm, HOME_VIEW));

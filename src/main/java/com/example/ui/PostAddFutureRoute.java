@@ -8,9 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import static com.example.ui.UIStrings.FUTURE_IDEA;
+import static com.example.ui.UIStrings.FUTURE_IDEAS;
 import static com.example.ui.UIStrings.HOME_VIEW;
-import static com.example.ui.UIStrings.PAST_IDEA;
 
 /**
  * The {@code GET /} route handler; aka the Home page.
@@ -58,7 +57,7 @@ public class PostAddFutureRoute implements Route {
 
         ideaCenter.pushToFuture(title,name,description);
 
-        vm.put(FUTURE_IDEA, new Idea(title,name,description));
+        vm.put(FUTURE_IDEAS, new Idea(title,name,description));
 
         return templateEngine.render(new ModelAndView(vm, HOME_VIEW));
     }
