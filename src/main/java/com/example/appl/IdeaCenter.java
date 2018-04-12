@@ -26,7 +26,9 @@ public class IdeaCenter {
     public void pushToPast(String title, String name, String description) {
         pastProjects.push(new Idea(title,name, description));
         LOG.fine("Past idea "+name+" added.");
+/*
         System.out.println(pastProjects.peek());
+*/
     }
 
     public void pushToPresent(String title, String name, String description) {

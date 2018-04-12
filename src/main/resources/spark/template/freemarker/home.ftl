@@ -27,9 +27,15 @@
     </tr>
     <#list pastIdeas as idea>
         <tr>
-            <td >
-                ${idea.getTitle()} : ${idea.getName()}
+<#--
+            <#list pastSet as idea>
+-->
+            <td>
+                <p>${idea.getTitle()} : ${idea.getName()}</p>
             </td>
+<#--
+            </#list>
+-->
         </tr>
     </#list>
     <#--<tr>
@@ -51,6 +57,19 @@
             </a>
         </td>
     </tr>
+    <#list pastIdeas as idea>
+        <tr>
+        <#--
+                    <#list pastSet as idea>
+        -->
+            <td>
+                <p>${idea.getTitle()} : ${idea.getName()}</p>
+            </td>
+        <#--
+                    </#list>
+        -->
+        </tr>
+    </#list>
 </table>
 <table class="home-div-table">
     <tr>
@@ -63,6 +82,19 @@
             </a>
         </td>
     </tr>
+    <#list pastIdeas as idea>
+        <tr>
+        <#--
+                    <#list pastSet as idea>
+        -->
+            <td>
+                <p>${idea.getTitle()} : ${idea.getName()}</p>
+            </td>
+        <#--
+                    </#list>
+        -->
+        </tr>
+    </#list>
 </table>
 </body>
 </html>

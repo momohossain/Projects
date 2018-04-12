@@ -51,6 +51,9 @@ public class GetHomeRoute implements Route {
    */
   @Override
   public String handle(Request request, Response response) {
+/*
+      System.out.println("Trying GetHomeRoute handler.");
+*/
     Map<String, Object> vm = new HashMap<>();
 
     HashSet<Idea> pastSet = new HashSet<>();
@@ -59,6 +62,9 @@ public class GetHomeRoute implements Route {
     }
     vm.put(PAST_IDEAS,pastSet);
     ideacenter.refreshPastProjects();
+/*
+      System.out.println("Passed GetHomeRoute handler.");
+*/
 
     HashSet<Idea> presentSet = new HashSet<>();
     while(!ideacenter.presentIsEmpty()){
