@@ -61,6 +61,7 @@ public class WebServer {
 
     get(FUTURE_IDEA_ADDER_URL, new GetAddFutureRoute(templateEngine));
 
+    post(HOME_URL, new PostAddPastRoute(ideaCenter, templateEngine));
 
     LOG.config("WebServer is initialized.");
   }

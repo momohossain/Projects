@@ -21,18 +21,18 @@ public class IdeaCenter {
         LOG.fine("Idea center created.");
     }
 
-    public void pushToPast(String name, String description, String author) {
-        pastProjects.push(new Idea(name,description, author));
+    public void pushToPast(String title, String name, String description) {
+        pastProjects.push(new Idea(title,name, description));
         LOG.fine("Past idea "+name+" added.");
     }
 
-    public void pushToPresent(String name, String description, String author) {
-        presentProjects.push(new Idea(name,description,author));
+    public void pushToPresent(String title, String name, String description) {
+        presentProjects.push(new Idea(title,name, description));
         LOG.fine("Present idea "+name+" added.");
     }
 
-    public void pushToFuture(String name, String description, String author) {
-        futureProjects.push(new Idea(name,description,author));
+    public void pushToFuture(String title, String name, String description) {
+        futureProjects.push(new Idea(title,name, description));
         LOG.fine("Future idea "+name+" added.");
     }
 
@@ -100,12 +100,12 @@ public class IdeaCenter {
         return idea.getTitle();
     }
 
-    public String getDescription(Idea idea){
-        return idea.getDescription();
-    }
-
     public String getName(Idea idea){
         return idea.getName();
+    }
+
+    public String getDescription(Idea idea){
+        return idea.getDescription();
     }
 
     public Idea iteratePastProjects(){

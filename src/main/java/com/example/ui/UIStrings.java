@@ -7,11 +7,6 @@ public interface UIStrings {
     String PRESENT_IDEA_ADDER_URL = "/add/PresentDabble";
     String FUTURE_IDEA_ADDER_URL = "/add/EnvisionProject";
 
-
-    String IDEA_TITLE = "title";
-    String IDEA_NAME = "name";
-    String IDEA_DESCRIPTION = "description";
-
     String PAST_IDEA_ADDER_VIEW = "pastIdeaAdder.ftl";
     String PRESENT_IDEA_ADDER_VIEW = "presentIdeaAdder.ftl";
     String FUTURE_IDEA_ADDER_VIEW = "futureIdeaAdder.ftl";

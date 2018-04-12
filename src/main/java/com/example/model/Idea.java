@@ -5,10 +5,10 @@ public class Idea {
     private String description;
     private String name;
 
-    public Idea(String title, String description, String name){
+    public Idea(String title, String name, String description){
         this.title = title;
-        this.description = description;
         this.name = name;
+        this.description = description;
     }
 
     public String getTitle() {

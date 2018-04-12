@@ -14,12 +14,12 @@
         <img src="https://www.csh.rit.edu/~mbillow/Images/csh-logo-discourse-round.svg" alt="CSH Projects Home" id="site-logo" hspace="10" vspace="10" style="padding-left: 15px">
     </a>
 </div>
-<form action="home.ftl" method="POST" style="padding: 15px; font-size: large">
+<form action="/" method="POST" style="padding: 15px; font-size: large">
     Idea Title: <br><input type="text" name="title" placeholder="Your Project Title.."/> <br> <br>
     Your Name: <br><input type="text" name="name" placeholder="Your Name.."/> <br> <br>
     Description: <br>
     <textarea rows="20" cols="100" name="description" placeholder="Describe your project here.." style="font-size: x-large; margin: 8px 0; padding: 12px 20px; width: 93.1%"></textarea><br>
-    <button class="add_idea"><span style="color: #ff23b2">+</span>Add Idea</button>
+    <button class="add_idea" type="submit"><span style="color: #ff23b2">+</span>Add Idea</button>
 </form>
 </body>
 </html>
