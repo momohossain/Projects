@@ -142,4 +142,16 @@ public class IdeaCenter {
             futureProjects.push(backwardStack.pop());
         }
     }
+
+    public boolean pastIsEmpty(){
+        return (this.pastProjects.empty());
+    }
+
+    public boolean presentIsEmpty(){
+        return (this.presentProjects.empty());
+    }
+
+    public boolean futureIsEmpty(){
+        return (this.futureProjects.empty());
+    }
 }

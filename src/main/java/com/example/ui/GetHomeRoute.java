@@ -1,8 +1,6 @@
 package com.example.ui;
 
-import static com.example.ui.UIStrings.HOME_VIEW;
-import static com.example.ui.UIStrings.PAST_IDEA;
-import static com.example.ui.UIStrings.PRESENT_IDEA;
+import static com.example.ui.UIStrings.*;
 import static spark.Spark.halt;
 
 import java.util.HashMap;
@@ -58,22 +56,19 @@ public class GetHomeRoute implements Route {
   @Override
   public String handle(Request request, Response response) {
     final Map<String, Object> vm = new HashMap<>();
-    Stack<Idea> pastProjects = this.ideacenter.getPastProjects();
-    Stack<Idea> presentProjects = this.ideacenter.getPresentProjects();
-    Stack<Idea> futureProjects = this.ideacenter.getFutureProjects();
 
-    while(pastProjects.peek() != null){
+    while(!ideacenter.pastIsEmpty()){
       vm.put(PAST_IDEA,ideacenter.iteratePastProjects());
     }
     ideacenter.refreshPastProjects();
 
-    while(presentProjects.peek() != null){
+    while(!ideacenter.presentIsEmpty()){
       vm.put(PRESENT_IDEA,ideacenter.iteratePresentProjects());
     }
     ideacenter.refreshPresentProjects();
 
-    while(futureProjects.peek() != null){
-      vm.put(PAST_IDEA,ideacenter.iterateFutureProjects());
+    while(!ideacenter.futureIsEmpty()){
+      vm.put(FUTURE_IDEA,ideacenter.iterateFutureProjects());
     }
     ideacenter.refreshFutureProjects();
 
