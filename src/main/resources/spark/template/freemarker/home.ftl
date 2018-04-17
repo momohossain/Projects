@@ -57,7 +57,7 @@
             </a>
         </td>
     </tr>
-    <#list pastIdeas as idea>
+    <#list presentIdeas as idea>
         <tr>
         <#--
                     <#list pastSet as idea>
@@ -82,7 +82,7 @@
             </a>
         </td>
     </tr>
-    <#list pastIdeas as idea>
+    <#list futureIdeas as idea>
         <tr>
         <#--
                     <#list pastSet as idea>
