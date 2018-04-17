@@ -31,7 +31,7 @@
             <#list pastSet as idea>
 -->
             <td>
-                <p>${idea.getTitle()} : ${idea.getName()}</p>
+                <p>${idea.title} : ${idea.name}</p>
             </td>
 <#--
             </#list>
@@ -63,7 +63,7 @@
                     <#list pastSet as idea>
         -->
             <td>
-                <p>${idea.getTitle()} : ${idea.getName()}</p>
+                <p>${idea.title} : ${idea.name}</p>
             </td>
         <#--
                     </#list>
@@ -88,7 +88,7 @@
                     <#list pastSet as idea>
         -->
             <td>
-                <p>${idea.getTitle()} : ${idea.getName()}</p>
+                <p>${idea.title} : ${idea.name}</p>
             </td>
         <#--
                     </#list>

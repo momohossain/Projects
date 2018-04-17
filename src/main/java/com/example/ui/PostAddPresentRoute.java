@@ -57,8 +57,8 @@ public class PostAddPresentRoute implements Route {
 
         ideaCenter.pushToPresent(title,name,description);
 
-        vm.put(PRESENT_IDEAS, new Idea(title,name,description));
-
-        return templateEngine.render(new ModelAndView(vm, HOME_VIEW));
+        response.redirect("/");
+        response.status(200);
+        return null;
     }
 }

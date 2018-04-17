@@ -57,8 +57,8 @@ public class PostAddFutureRoute implements Route {
 
         ideaCenter.pushToFuture(title,name,description);
 
-        vm.put(FUTURE_IDEAS, new Idea(title,name,description));
-
-        return templateEngine.render(new ModelAndView(vm, HOME_VIEW));
+        response.redirect("/");
+        response.status(200);
+        return null;
     }
 }
